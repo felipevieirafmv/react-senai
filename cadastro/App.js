@@ -9,9 +9,9 @@ export default function App() {
 	return(
 		<NavigationContainer>
 			<Stack.Navigator>
+				<Stack.Screen name = "Cadastro" options = {{headerShown: false}} component = {Cadastro} />
 				<Stack.Screen name = "Usuarios" options = {{headerShown: false}} component = {Usuarios} />
 				<Stack.Screen name = "Login" options = {{headerShown: false}} component = {Login} />
-				<Stack.Screen name = "Cadastro" options = {{headerShown: false}} component = {Cadastro} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

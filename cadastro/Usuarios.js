@@ -28,7 +28,7 @@ export default function Usuarios()
 {
     return(
         <View style = {styles.viewClass}>
-            <Text style = {styles.titleText}>Usuarios</Text>
+            <Text style = {styles.titleText}>Usuários</Text>
             <View style = {styles.box}>
                 <Text style = {styles.labelText}>Nome: </Text>
                 <Text style = {styles.labelText}>Idade: </Text>
