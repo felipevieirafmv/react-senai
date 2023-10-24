@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { UtilsContext } from "./config/context";
 
 const styles = StyleSheet.create({
     viewClass: {
@@ -61,6 +62,13 @@ export function Login(props)
 {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
+    const {utils, setUtils} = useContext(UtilsContext)
+
+    function goToCadastro()
+    {
+        setUtils({...utils, email: email})
+        props.navigation.navigate("Cadastro")
+    }
 
     return(
         <View style = {styles.viewClass}>
@@ -88,7 +96,7 @@ export function Login(props)
                 <TouchableOpacity style={styles.loginButton} onPress = {() => props.navigation.navigate("Usuarios")}>
                     <Text style = {styles.buttonText}>Login</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.cadastroButton} onPress = {() => props.navigation.navigate("Cadastro")}>
+                <TouchableOpacity style={styles.cadastroButton} onPress = {() => goToCadastro()}>
                     <Text style = {styles.buttonText}>Cadastrar</Text>
                 </TouchableOpacity>
             </View>

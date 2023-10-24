@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, Switch } from "react-native";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { UtilsContext } from "./config/context";
 
 const styles = StyleSheet.create({
     viewClass: {
@@ -82,27 +83,67 @@ const styles = StyleSheet.create({
 
 export default function Cadastro(props)
 {
-    const [inicio, setInicio] = useState(false)
+    const [nome, setNome] = useState("")
+    const [idade, setIdade] = useState("")
+    const [sexo, setSexo] = useState("")
+    const [notificacao, setNotificacao] = useState(false)
+    const {utils, setUtils} = useContext(UtilsContext)
+
+    function goToUsuario()
+    {
+        if(utils.dados)
+        {
+            setUtils({...utils, dados: [...utils.dados, {
+                nome: nome,
+                idade: idade,
+                sexo: sexo,
+                notificacao: notificacao}
+            ]})
+        }
+        else
+        {
+            setUtils({...utils, dados: [{
+                nome: nome,
+                idade: idade,
+                sexo: sexo,
+                notificacao: notificacao}
+            ]})
+        }
+            props.navigation.navigate("Usuarios")
+    }
+
     return(
         <View style = {styles.viewClass}>
             <View style = {styles.viewImg}>
                 <Image
                     style = {styles.img}
-                    source={require("./cadImg.png")}
+                    source={require("../../cadImg.png")}
                 />
             </View>
             <View style = {styles.viewForm}>
                 <Text style = {styles.labelText}>Nome:</Text>
-                <TextInput style = {styles.input} />
+                <TextInput
+                    style = {styles.input}
+                    value = {nome}
+                    onChangeText = {text => setNome(text)}
+                />
 
                 <View style = {styles.viewDoubleInput}>
                     <View style = {styles.viewOneDoubleInput}>
                         <Text style = {{fontFamily: "Comic Sans MS"}}>Idade:</Text>
-                        <TextInput style = {styles.doubleInput} />
+                        <TextInput
+                            style = {styles.doubleInput}
+                            value = {idade}
+                            onChangeText = {text => setIdade(text)}
+                        />
                     </View>
                     <View  style = {styles.viewOneDoubleInput}>
                         <Text style = {{fontFamily: "Comic Sans MS"}}>Sexo:</Text>
-                        <TextInput style = {styles.doubleInput} />
+                        <TextInput
+                            style = {styles.doubleInput}
+                            value = {sexo}
+                            onChangeText = {text => setSexo(text)}
+                        />
                     </View>
                 </View>
 
@@ -115,20 +156,20 @@ export default function Cadastro(props)
                 <Text style = {styles.labelText}>Deseja receber notificações:</Text>
                 <View style = {styles.viewSwitch}>
                     <Switch
-                        onValueChange = {() => setInicio(!inicio)}
-                        value = {inicio}
+                        onValueChange = {() => setNotificacao(!notificacao)}
+                        value = {notificacao}
                         trackColor = {{false: "#757577", true: "#81b0ff"}}
                         thumbColor = {"#ffffff"}
                         activeThumbColor = {"#f4f3f4"}
                         style = {styles.styleSwitch}
                     />
-                    <Text style = {styles.labelText}>{inicio ? "Sim" : "Não"}</Text>
+                    <Text style = {styles.labelText}>{notificacao ? "Sim" : "Não"}</Text>
                 </View>
 
             </View>
 
             <View style = {styles.viewButton}>
-                <TouchableOpacity style={styles.loginButton} onPress = {() => props.navigation.navigate("Login")}>
+                <TouchableOpacity style={styles.loginButton} onPress = {() => goToUsuario()}>
                     <Text style = {styles.buttonText}>Cadastrar</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.cadastroButton} onPress = {() => props.navigation.navigate("Login")}>
