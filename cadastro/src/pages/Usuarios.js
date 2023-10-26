@@ -33,20 +33,18 @@ export default function Usuarios(props)
     return(
         <View style = {styles.viewClass}>
             <Text style = {styles.titleText}>Usuários</Text>
-            <View style = {styles.box}>
+            <View style = {styles.box}> 
                 <FlatList
-                    data = {[{nome: 'a', idade: 's', sexo: 'd', notificacao: false}]}
-                    renderItem={({item}) => {
-                        <View style = {{backgroundColor: "blue", height: "100px", width: "100px"}}>
-                            {/* <Text style={styles.labelText}>Nome: {item.nome}</Text>,
-                            <Text style={styles.labelText}>Idade: {item.idade}</Text>,
-                            <Text style={styles.labelText}>Sexo: {item.sexo}</Text>,
-                            <Text style={styles.labelText}>Recebe Notificação: {item.notificacao ? 'Sim' : 'Não'}</Text> */}
-                        </View>
-                    }}
-                    keyExtractor={(item) => "1"}
+                    data={utils.dados}
+                    renderItem={({item}) => <View style = {{width: "100%"}}>
+                            <Text style={styles.labelText}>Nome: {item.nome}</Text>
+                            <Text style={styles.labelText}>Idade: {item.idade}</Text>
+                            <Text style={styles.labelText}>Sexo: {item.sexo}</Text>
+                            <Text style={styles.labelText}>Recebe Notificação: {item.notificacao ? 'Sim' : 'Não'}</Text>
+                        </View>}
+                    keyExtractor={item => item.id}
                 />
-            </View>
+            </View> 
         </View>
     )
 }
