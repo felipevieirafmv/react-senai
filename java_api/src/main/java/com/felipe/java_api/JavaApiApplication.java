@@ -29,8 +29,17 @@ public class JavaApiApplication {
 		// Ex5 exercicio5 = new Ex5();
 		// exercicio5.exercicio5();
 		
-		Ex6 exercicio6 = new Ex6();
-		exercicio6.exercicio6();
+		// Ex6 exercicio6 = new Ex6();
+		// exercicio6.exercicio6();
+		
+		// Ex7 exercicio7 = new Ex7();
+		// exercicio7.exercicio7();
+		
+		// Ex8 exercicio8 = new Ex8();
+		// exercicio8.exercicio8();
+		
+		// Ex9 exercicio9 = new Ex9();
+		// exercicio9.exercicio9();
 
 
 	}

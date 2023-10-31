@@ -1,42 +1,7 @@
 package com.felipe.java_api;
 
-import lombok.Getter;
-import lombok.Setter;
-
 public class Ex6 {
     public Ex6() { }
-
-    public class Pessoa
-    {
-        @Getter @Setter public String nome;
-        @Getter @Setter public String cpf;
-
-        public Pessoa(String nome, String cpf)
-        {
-            this.nome = nome;
-            this.cpf = cpf;
-        }
-    }
-
-    public class Usuario extends Pessoa
-    {
-        @Getter @Setter public int cadastro;
-        public Usuario(String nome, String cpf, int cadastro)
-        {
-            super(nome, cpf);
-            this.cadastro = cadastro;
-        }
-    }
-
-    public class Funcionario extends Pessoa
-    {
-        @Getter @Setter public int edv;
-        public Funcionario(String nome, String cpf, int edv)
-        {
-            super(nome, cpf);
-            this.edv = edv;
-        }
-    }
 
     public void exercicio6()
     {
