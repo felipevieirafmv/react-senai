@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, Switch } from "react-native";
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, Switch, Button } from "react-native";
 import { useState, useContext } from 'react';
 import { UtilsContext } from "./config/context";
 
@@ -81,6 +81,13 @@ const styles = StyleSheet.create({
     }
 });
 
+
+function ButtonCustom(props){
+    return(
+        <Button title={props.title}>{props.children}</Button>
+    )
+}
+
 export default function Cadastro(props)
 {
     const [nome, setNome] = useState("")
@@ -114,6 +121,9 @@ export default function Cadastro(props)
 
     return(
         <View style = {styles.viewClass}>
+            <ButtonCustom title="teste cadastro">
+                <Text></Text>
+            </ButtonCustom>
             <View style = {styles.viewImg}>
                 <Image
                     style = {styles.img}
