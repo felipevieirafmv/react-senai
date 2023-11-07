@@ -93,6 +93,8 @@ export default function Cadastro(props)
     const [nome, setNome] = useState("")
     const [idade, setIdade] = useState("")
     const [sexo, setSexo] = useState("")
+    const [email, setEmail] = useState("")
+    const [senha, setSenha] = useState("")
     const [notificacao, setNotificacao] = useState(false)
     const {utils, setUtils} = useContext(UtilsContext)
 
@@ -104,6 +106,8 @@ export default function Cadastro(props)
                 nome: nome,
                 idade: idade,
                 sexo: sexo,
+                email: email,
+                senha: senha,
                 notificacao: notificacao}
             ]})
         }
@@ -113,6 +117,8 @@ export default function Cadastro(props)
                 nome: nome,
                 idade: idade,
                 sexo: sexo,
+                email: email,
+                senha: senha,
                 notificacao: notificacao}
             ]})
         }
@@ -158,9 +164,17 @@ export default function Cadastro(props)
                 </View>
 
                 <Text style = {styles.labelText}>E-mail:</Text>
-                <TextInput style = {styles.input}/>
+                <TextInput
+                    style = {styles.input}
+                    value = {email}
+                    onChangeText = {text => setEmail(text)}
+                />
                 <Text style = {styles.labelText}>Senha:</Text>
-                <TextInput style = {styles.input}/>
+                <TextInput
+                    style = {styles.input}
+                    value = {senha}
+                    onChangeText = {text => setSenha(text)}
+                />
                 <Text style = {styles.labelText}>Confirmar senha:</Text>
                 <TextInput style = {styles.input}/>
                 <Text style = {styles.labelText}>Deseja receber notificações:</Text>
