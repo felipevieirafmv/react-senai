@@ -1,4 +1,4 @@
-package com.felipe.java_api;
+package com.felipe.java_api.exercicios;
 
 import java.util.ArrayList;
 

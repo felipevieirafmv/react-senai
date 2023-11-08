@@ -1,4 +1,4 @@
-package com.felipe.java_api;
+package com.felipe.java_api.exercicios;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,3 +11,4 @@ public class Funcionario extends Pessoa {
         this.edv = edv;
     }
 }
+

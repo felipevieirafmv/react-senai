@@ -1,4 +1,4 @@
-package com.felipe.java_api;
+package com.felipe.java_api.exercicios;
 
 public class Ex5 {
     public int quantImpar = 0;
