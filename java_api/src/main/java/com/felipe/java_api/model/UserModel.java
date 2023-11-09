@@ -14,19 +14,19 @@ public class UserModel {
     private String id;
     private String name;
     private short age;
+    private String sex;
+    private String email;
     private String password;
+    private boolean notifications;
 
-    public UserModel(String id, String name, short age)
-    {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-    }
-
-    public UserModel(String name, short age)
+    public UserModel(String name, short age, String sex, String email, String password, Boolean notifications)
     {
         this.name = name;
         this.age = age;
+        this.sex = sex;
+        this.email = email;
+        this.password = password;
+        this.notifications = notifications;
     }
 
     public UserModel(String id)

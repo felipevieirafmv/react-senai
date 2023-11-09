@@ -19,9 +19,9 @@ public class UserService {
         return this.userRepository.save(userModel);
     }
 
-    public void save(String id, String name, short age)
+    public void save(String id, String name, short age, String sex, String email, String password, Boolean notifications)
     {
-        this.userRepository.save(new UserModel(id, name, age));
+        this.userRepository.save(new UserModel(id, name, age, sex, email, password, notifications));
     }
 
     public List<UserModel> findAll()

@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, Switch, Button } from "react-native";
 import { useState, useContext } from 'react';
 import { UtilsContext } from "./config/context";
+import axios from "axios";
 
 const styles = StyleSheet.create({
     viewClass: {
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
 
 function ButtonCustom(props){
     return(
-        <Button title={props.title}>{props.children}</Button>
+        <Button title={props.title} onPress = {() => props.funcao()}>{props.children}</Button>
     )
 }
 
@@ -97,6 +98,26 @@ export default function Cadastro(props)
     const [senha, setSenha] = useState("")
     const [notificacao, setNotificacao] = useState(false)
     const {utils, setUtils} = useContext(UtilsContext)
+
+    const getUser = async() => {
+        try {
+            const response = await axios.get("http://localhost:8080/user")
+            console.log(response.data)
+        }
+        catch (error) {
+            console.error(error);
+        }
+    }
+
+    const postUser = async(name, age) => {
+        try {
+            const response = await axios.post("http://localhost:8080/user", {name, age})
+            console.log(response)
+        }
+        catch (error) {
+            console.error(error);
+        }
+    }
 
     function goToUsuario()
     {
@@ -127,7 +148,7 @@ export default function Cadastro(props)
 
     return(
         <View style = {styles.viewClass}>
-            <ButtonCustom title="teste cadastro">
+            <ButtonCustom funcao = {getUser} title="teste cadastro">
                 <Text></Text>
             </ButtonCustom>
             <View style = {styles.viewImg}>
@@ -193,7 +214,7 @@ export default function Cadastro(props)
             </View>
 
             <View style = {styles.viewButton}>
-                <TouchableOpacity style={styles.loginButton} onPress = {() => goToUsuario()}>
+                <TouchableOpacity style={styles.loginButton} onPress = {() => postUser(nome, idade)}>
                     <Text style = {styles.buttonText}>Cadastrar</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.cadastroButton} onPress = {() => props.navigation.navigate("Login")}>

@@ -48,10 +48,10 @@ public class UserController {
         userService.save(newUser);
     }
 
-    @PutMapping("/{id}")
-    public void putUser(@RequestBody UserModel newUser, @PathVariable String id) {
-        userService.save((String) id, (String) newUser.getName(), (short) newUser.getAge());
-    }
+    // @PutMapping("/{id}")
+    // public void putUser(@RequestBody UserModel newUser, @PathVariable String id) {
+    //     userService.save((String) id, (String) newUser.getName(), (short) newUser.getAge(), (String) newUser.getSex, (String) newUser.getEmail, (String) newUser.getPassword, (Boolean) newUser.getNotifications);
+    // }
 
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable String id) {
